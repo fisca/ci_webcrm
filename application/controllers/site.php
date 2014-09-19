@@ -23,8 +23,13 @@ class Site extends CI_Controller {
     // ==================== Group Customer ===================
     public function config_group_customer() {
         $this->load->model('Group_customer');
-        $data['groupCustomers'] = $this->Group_customer->get_group_customer();
+        $data['groupCustomers'] = $this->Group_customer->get_group_customers();
         $this->load->view("site/config_group_customer", $data);
+    }
+
+    public function save_group_customer() {
+        $this->load->model('Group_customer');
+        $this->Group_customers->save_group_customers();
     }
 
     // ===================== Visit Type ========================

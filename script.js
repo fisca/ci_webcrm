@@ -6,14 +6,24 @@ function configGroupCustomer() {
             $("#content").html(data);
         }
     });
-    
-    $.ajax({
-        url: 'site/config_group_customer',
-        success: function(data) {
-            $("#content").html(data);
-        }
-    });
+       
 
+    return false;
+}
+
+function saveGroupCustomer() {
+    $.ajax({
+        url: 'index.php/site/save_group_customer',
+        type: 'POST',
+        data: $("#formGroupCustomer").serialize(),
+        success: function(data) {
+            if (data === 'success') {
+                alert("บันทึกรายการแล้ว");
+                configGroupCustomer();
+            }
+        }
+    });    
+    
     return false;
 }
 
